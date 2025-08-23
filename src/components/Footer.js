@@ -11,10 +11,10 @@ const Footer = () => {
     >
       <div className="container mx-auto px-6 text-center">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Daniel Quishpe. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Daniel Quishpe. Echo por mi w.
         </p>
         <p className="text-xs mt-2 text-gray-400">
-          Diseñado con pasión y un poco de cafeína.
+          Diseñado con pasión y un poco de ansiedad
         </p>
       </div>
     </motion.footer>
