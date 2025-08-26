@@ -2,25 +2,40 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { FaGithub, FaEnvelope, FaHtml5, FaCss3Alt, FaJsSquare, FaJava, FaPython, FaDatabase, FaFileExcel, FaChartBar, FaLinux, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaHtml5, FaCss3Alt, FaJsSquare, FaJava, FaPython, FaDatabase, FaFileExcel, FaChartBar, FaLinux, FaExternalLinkAlt, FaGitAlt } from 'react-icons/fa';
 
 const App = () => {
-
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   };
 
-  const skills = [
-    { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
-    { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
-    { name: 'JavaScript', icon: FaJsSquare, color: '#F7DF1E' },
-    { name: 'Java (básico)', icon: FaJava, color: '#007396' },
-    { name: 'Python (aprendizaje)', icon: FaPython, color: '#3776AB' },
-    { name: 'SQL (básico)', icon: FaDatabase, color: '#4479A1' },
-    { name: 'Excel', icon: FaFileExcel, color: '#217346' },
-    { name: 'Power BI', icon: FaChartBar, color: '#F2C811' },
-    { name: 'Linux (Ubuntu)', icon: FaLinux, color: '#E95420' },
+  const skillCategories = [
+    {
+      title: "Front-end",
+      skills: [
+        { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
+        { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
+        { name: 'JavaScript', icon: FaJsSquare, color: '#F7DF1E' },
+      ]
+    },
+    {
+      title: "Back-end",
+      skills: [
+        { name: 'Java (básico)', icon: FaJava, color: '#007396' },
+        { name: 'Python (aprendizaje)', icon: FaPython, color: '#3776AB' },
+        { name: 'SQL (básico)', icon: FaDatabase, color: '#4479A1' },
+      ]
+    },
+    {
+      title: "Herramientas",
+      skills: [
+        { name: 'Git & GitHub', icon: FaGitAlt, color: '#F05032' },
+        { name: 'Excel', icon: FaFileExcel, color: '#217346' },
+        { name: 'Power BI', icon: FaChartBar, color: '#F2C811' },
+        { name: 'Linux (Ubuntu)', icon: FaLinux, color: '#E95420' },
+      ]
+    }
   ];
 
   const projects = [
@@ -115,25 +130,30 @@ const App = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="container mx-auto max-w-4xl"
+            className="container mx-auto max-w-5xl"
           >
             <h2 className="text-4xl font-bold text-center text-accent mb-12">// Habilidades_</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  className="bg-foreground border border-border p-6 rounded-lg text-center flex flex-col items-center justify-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  whileHover={{ y: -5, boxShadow: `0 0 20px var(--color-accent)`, border: `1px solid var(--color-accent)` }}
-                >
-                  <skill.icon size={40} style={{ color: skill.color }} className="mb-3" />
-                  <p className="text-lg font-medium text-text/90">{skill.name}</p>
-                </motion.div>
-              ))}
-            </div>
+            {skillCategories.map((category) => (
+              <div key={category.title} className="mb-12">
+                <h3 className="text-2xl font-bold text-primary mb-6 text-center">{category.title}</h3>
+                <div className="flex flex-wrap justify-center gap-6">
+                  {category.skills.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      className="bg-foreground border border-border p-6 rounded-lg text-center flex flex-col items-center justify-center w-36 h-36"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      whileHover={{ y: -5, boxShadow: `0 0 20px var(--color-accent)`, border: `1px solid var(--color-accent)` }}
+                    >
+                      <skill.icon size={40} style={{ color: skill.color }} className="mb-3" />
+                      <p className="text-lg font-medium text-text/90">{skill.name}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </motion.div>
         </section>
 
@@ -144,33 +164,37 @@ const App = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="container mx-auto max-w-3xl text-center"
+            className="container mx-auto max-w-2xl text-center"
           >
             <h2 className="text-4xl font-bold text-accent mb-8">// Contacto_</h2>
             <p className="text-lg text-text/80 mb-8">
-              Buscando activamente nuevos desafíos. Si tienes un proyecto o una oportunidad, me encantaría saber de ti.
+              ¿Interesado en colaborar? Envíame un mensaje a través del formulario.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-              <motion.a
-                href="mailto:quishpedaniel36@gmail.com"
-                className="flex items-center bg-primary text-background px-6 py-3 rounded-md text-lg font-bold shadow-lg hover:bg-secondary transition-all duration-300 transform hover:scale-105"
-                whileHover={{ scale: 1.05, boxShadow: '0 0 20px var(--color-primary)' }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaEnvelope className="mr-3" /> Correo Electrónico
-              </motion.a>
-              <motion.a
-                href="https://github.com/danielmoralesqsh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center bg-border text-text px-6 py-3 rounded-md text-lg font-bold shadow-lg hover:bg-gray-600 transition-all duration-300 transform hover:scale-105"
-                whileHover={{ scale: 1.05, boxShadow: '0 0 20px var(--color-accent)' }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaGithub className="mr-3" /> GitHub
-              </motion.a>
-            </div>
-           
+            <form name="contact" method="POST" data-netlify="true" className="text-left">
+              <input type="hidden" name="form-name" value="contact" />
+              <div className="mb-4">
+                <label htmlFor="name" className="block text-primary mb-2">Nombre</label>
+                <input type="text" id="name" name="name" required className="w-full bg-foreground border border-border rounded-md py-2 px-3 text-text focus:outline-none focus:border-accent" />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="email" className="block text-primary mb-2">Email</label>
+                <input type="email" id="email" name="email" required className="w-full bg-foreground border border-border rounded-md py-2 px-3 text-text focus:outline-none focus:border-accent" />
+              </div>
+              <div className="mb-6">
+                <label htmlFor="message" className="block text-primary mb-2">Mensaje</label>
+                <textarea id="message" name="message" rows="4" required className="w-full bg-foreground border border-border rounded-md py-2 px-3 text-text focus:outline-none focus:border-accent"></textarea>
+              </div>
+              <div className="text-center">
+                <motion.button
+                  type="submit"
+                  className="bg-accent text-background px-8 py-3 rounded-md text-lg font-bold shadow-lg hover:bg-green-400 transition-all duration-300 transform hover:scale-105"
+                  whileHover={{ scale: 1.05, boxShadow: '0 0 20px var(--color-accent)' }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  [ Enviar Mensaje ]
+                </motion.button>
+              </div>
+            </form>
           </motion.div>
         </section>
       </main>
