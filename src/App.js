@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { FaGithub, FaEnvelope, FaHtml5, FaCss3Alt, FaJsSquare, FaJava, FaPython, FaDatabase, FaFileExcel, FaChartBar, FaLinux, FaExternalLinkAlt, FaGitAlt } from 'react-icons/fa';
 
 const App = () => {
+  const [activeSection, setActiveSection] = useState('inicio');
+  const sectionRefs = useRef({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-30% 0px -70% 0px' } // Triggers when section is in the middle 40% of the screen
+    );
+
+    const sections = document.querySelectorAll('main section');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
@@ -57,7 +80,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-background text-text font-sans bg-grid">
-      <Navbar />
+      <Navbar activeSection={activeSection} />
 
       <main className="pt-20">
         {/* Sección Inicio */}
@@ -140,15 +163,15 @@ const App = () => {
                   {category.skills.map((skill, index) => (
                     <motion.div
                       key={skill.name}
-                      className="bg-foreground border border-border p-6 rounded-lg text-center flex flex-col items-center justify-center w-36 h-36"
+                      className="group bg-foreground border border-border p-6 rounded-lg text-center flex flex-col items-center justify-center w-36 h-36"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.5 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       whileHover={{ y: -5, boxShadow: `0 0 20px var(--color-accent)`, border: `1px solid var(--color-accent)` }}
                     >
-                      <skill.icon size={40} style={{ color: skill.color }} className="mb-3" />
-                      <p className="text-lg font-medium text-text/90">{skill.name}</p>
+                      <skill.icon size={40} style={{ color: skill.color }} className="mb-3 grayscale group-hover:grayscale-0 transition-all duration-300" />
+                      <p className="text-lg font-medium text-text/90 group-hover:text-accent">{skill.name}</p>
                     </motion.div>
                   ))}
                 </div>

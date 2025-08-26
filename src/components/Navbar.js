@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
  
-const Navbar = () => {
+const Navbar = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);
  
   const navLinks = [
@@ -29,15 +29,17 @@ const Navbar = () => {
         </a>
  
         <div className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-text hover:text-primary font-medium transition-colors duration-300"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`font-medium transition-colors duration-300 ${isActive ? 'text-accent' : 'text-text hover:text-primary'}`}>
+                {link.name}
+              </a>
+            );
+          })}
         </div>
  
         <div className="md:hidden">
@@ -54,16 +56,18 @@ const Navbar = () => {
         className="md:hidden overflow-hidden bg-foreground/90"
       >
         <div className="flex flex-col items-center space-y-4 py-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-text hover:text-primary font-medium text-lg"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`font-medium text-lg ${isActive ? 'text-accent [text-shadow:0_0_8px_var(--color-accent)]' : 'text-text hover:text-primary'}`}>
+                {link.name}
+              </a>
+            )
+          })}
         </div>
       </motion.div>
     </motion.nav>
