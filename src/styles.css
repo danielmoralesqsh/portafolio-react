@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-background: #0d1117;
+  --color-foreground: #161b22;
+  --color-border: #30363d;
+  --color-text: #c9d1d9;
+  --color-primary: #58a6ff; /* Blue */
+  --color-accent: #39d353; /* Green */
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'VT323', monospace;
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(50, 54, 61, 0.5) 1px, transparent 1px),
+    linear-gradient(to right, rgba(50, 54, 61, 0.5) 1px, var(--color-background) 1px);
+  background-size: 40px 40px;
+}

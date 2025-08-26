@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 const Footer = () => {
   return (
     <motion.footer
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ delay: 0.8, duration: 0.5 }}
-      className="bg-gray-800 text-white py-8 mt-16"
+      className="bg-foreground text-text py-6 mt-16 border-t border-border"
     >
       <div className="container mx-auto px-6 text-center">
         <p className="text-sm">
