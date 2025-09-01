@@ -1,7 +1,7 @@
 export const projects = [
   {
-    title: "Portafolio Personal v1",
-    description: "La primera versión de mi portafolio personal, creada con React y Tailwind CSS para mostrar mis proyectos y habilidades de una forma visual y moderna.",
+    title: "Trabajo en Proceso",
+    description: "Ando trabajando en mi portafolio personal para mostrar mis proyectos y habilidades.",
     technologies: ["React", "TailwindCSS", "Framer Motion"],
     githubUrl: "https://github.com/danielmoralesqsh/portfolio",
     liveUrl: "#"
