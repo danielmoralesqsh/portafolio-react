@@ -46,9 +46,9 @@ const App = () => {
     {
       title: "Back-end",
       skills: [
-        { name: 'Java (básico)', icon: FaJava, color: '#007396' },
-        { name: 'Python (aprendizaje)', icon: FaPython, color: '#3776AB' },
-        { name: 'SQL (básico)', icon: FaDatabase, color: '#4479A1' },
+        { name: 'Java', icon: FaJava, color: '#007396' },
+        { name: 'Python', icon: FaPython, color: '#3776AB' },
+        { name: 'SQL', icon: FaDatabase, color: '#4479A1' },
       ]
     },
     {
