@@ -96,7 +96,11 @@ const App = () => {
               Daniel Quishpe — <br className="md:hidden" /> <span className='text-accent'>Developer</span>
             </h1>
             <p className="text-lg md:text-xl text-text/80 leading-relaxed mb-8">
-              Tecnólogo en Desarrollo de Software de Ecuador, apasionado por construir soluciones web y desentrañar datos. Buscando oportunidades junior/trainee para aplicar y expandir mis conocimientos. ¡Listo para aprender y contribuir!
+              Tecnólogo en Desarrollo de Software de Ecuador, apasionado por construir soluciones web y desentrañar datos.
+              Buscando oportunidades junior/trainee para aplicar y expandir mis conocimientos. ¡Listo para aprender y contribuir!
+              Tecnolgo en Desarrollo de Software Ecuartoriano, me encanta descubrir nuevas tecnologias y contribuir con mis
+              conocimientos y habilidades en proyectos desafiantes. Cuento con habilidades en desarrollo web, bases de datos y analisis de datos.
+              Buscando expandir mis conocimientos y crecer profesionalmente.
             </p>
             <motion.a
               href="#contacto"
@@ -191,7 +195,7 @@ const App = () => {
           >
             <h2 className="text-4xl font-bold text-accent mb-8">// Contacto_</h2>
             <p className="text-lg text-text/80 mb-8">
-              ¿Interesado en colaborar? Envíame un mensaje a través del formulario.
+              ¿Interesado en colaborar? Contactame y hablemos de cómo puedo contribuir a tu equipo o proyecto. 
             </p>
             <form name="contact" method="POST" data-netlify="true" className="text-left">
               <input type="hidden" name="form-name" value="contact" />

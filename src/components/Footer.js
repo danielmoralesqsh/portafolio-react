@@ -20,7 +20,7 @@ const Footer = () => {
           </a>
         </div>
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Daniel Quishpe. Echo por mi w.
+          {new Date().getFullYear()} Daniel Quishpe. Echo por mi w.
         </p>
         <p className="text-xs mt-2 text-text/50">
           Diseñado con pasión y un poco de ansiedad
