@@ -15,12 +15,25 @@
 
 body {
   background-color: var(--color-background);
+  /*
+    Se aplican múltiples gradientes radiales para un efecto de "aurora".
+    Cada gradiente es un resplandor de color (azul y verde) muy difuminado
+    y semitransparente sobre el fondo oscuro base.
+  */
+  background-image:
+    /* Resplandor azul (primary) en la esquina superior izquierda */
+    radial-gradient(at 0% 0%, hsla(212, 100%, 67%, 0.15) 0px, transparent 40%),
+    /* Resplandor verde (accent) más grande y notorio en la esquina inferior derecha */
+    radial-gradient(at 90% 95%, hsla(135, 65%, 46%, 0.2) 0px, transparent 60%);
+
+  background-attachment: fixed;
   color: var(--color-text);
   font-family: 'VT323', monospace;
 }
 
 .bg-grid {
+  /* Se elimina el color de fondo de la rejilla para que el gradiente del body sea visible */
   background-image: linear-gradient(rgba(50, 54, 61, 0.5) 1px, transparent 1px),
-    linear-gradient(to right, rgba(50, 54, 61, 0.5) 1px, var(--color-background) 1px);
+    linear-gradient(to right, rgba(50, 54, 61, 0.5) 1px, transparent 1px);
   background-size: 40px 40px;
 }
