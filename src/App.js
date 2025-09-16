@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { FaGithub, FaEnvelope, FaHtml5, FaCss3Alt, FaJsSquare, FaJava, FaPython, FaDatabase, FaFileExcel, FaChartBar, FaLinux, FaExternalLinkAlt, FaGitAlt } from 'react-icons/fa';
@@ -63,7 +64,17 @@ const App = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-text font-sans bg-grid">
+    <>
+      <div className="fixed inset-0 -z-10 bg-aurora" />
+      <div className="relative min-h-screen text-text font-sans bg-grid">
+        <Helmet>
+        {/* Esto actualiza las etiquetas del head para esta "página" */}
+        <title>Portafolio de Daniel Morales | Desarrollador de Software</title>
+        <meta name="description" content="Página principal del portafolio de Daniel Morales, mostrando proyectos de desarrollo web, análisis de datos y más." />
+        {/* La URL canónica ayuda a los buscadores a no indexar contenido duplicado */}
+        <link rel="canonical" href="https://TU_URL_AQUI.com/" />
+      </Helmet>
+
       <Navbar activeSection={activeSection} />
 
       <main className="pt-20">
@@ -210,6 +221,7 @@ const App = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 
