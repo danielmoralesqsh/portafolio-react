@@ -21,11 +21,11 @@ const Navbar = ({ activeSection }) => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-foreground/80 backdrop-blur-md border-b border-border shadow-md py-4"
+      className="fixed top-0 left-0 right-0 z-50 bg-foreground/80 backdrop-blur-md border-b border-border shadow-md py-0"
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#inicio" className="text-2xl font-bold text-accent">
-          Daniel Quishpe
+          <img src={process.env.PUBLIC_URL + '/DQ.png'} alt="Logo de DQ.Dev" className="h-48 w-auto -my-12" />
         </a>
  
         <div className="hidden md:flex space-x-8">
