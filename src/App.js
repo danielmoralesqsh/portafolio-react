@@ -4,6 +4,10 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { FaGithub, FaEnvelope, FaHtml5, FaCss3Alt, FaJsSquare, FaJava, FaPython, FaDatabase, FaFileExcel, FaChartBar, FaLinux, FaExternalLinkAlt, FaGitAlt } from 'react-icons/fa';
+import { SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
+import { BsBoxes } from 'react-icons/bs';
+import { FiVideo } from 'react-icons/fi';
+
 import { projects } from './data/projects';
 
 const App = () => {
@@ -63,6 +67,15 @@ const App = () => {
     }
   ];
 
+  const techIconMap = {
+    'Next.js': <SiNextdotjs size={14} className="inline mr-1.5" />,
+    'TypeScript': <SiTypescript size={14} className="inline mr-1.5" />,
+    'Tailwind CSS': <SiTailwindcss size={14} className="inline mr-1.5" />,
+    'Shadcn UI': <BsBoxes size={14} className="inline mr-1.5" />,
+    'HLS.js': <FiVideo size={14} className="inline mr-1.5" />,
+  };
+
+
   return (
     <>
       <div className="fixed inset-0 -z-10 bg-aurora" />
@@ -116,25 +129,31 @@ const App = () => {
             className="container mx-auto max-w-5xl"
           >
             <h2 className="text-4xl font-bold text-center text-accent mb-12">// Proyectos_</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex flex-wrap justify-center gap-8">
               {projects.map((project, index) => (
                 <motion.div
                   key={index}
-                  className="bg-foreground border border-border rounded-lg p-6 flex flex-col transition-all duration-300 hover:border-accent hover:shadow-glow-accent"
+                  className="bg-foreground border border-border rounded-lg p-4 flex flex-col max-w-sm transition-all duration-300 hover:border-accent hover:shadow-glow-accent"
                 >
-                  <h3 className="text-2xl font-bold text-primary mb-3">{project.title}</h3>
-                  <p className="text-text/80 mb-4 flex-grow">{project.description}</p>
-                  <div className="mb-4 flex flex-wrap gap-2">
+                  <h3 className="text-xl font-bold text-primary mb-2">{project.title}</h3>
+                  <p className="text-sm text-text/80 mb-3 flex-grow">{project.description}</p>
+                  <div className="mb-2 flex flex-wrap gap-2">
                     {project.technologies.map((tech, i) => (
-                      <span key={i} className="text-xs font-medium bg-border text-accent px-2 py-1 rounded">{tech}</span>
+                      <span key={i} className="flex items-center text-xs font-medium bg-border text-accent px-2 py-1 rounded">
+                        {techIconMap[tech] || null}
+                        {tech}
+                      </span>
                     ))}
                   </div>
-                  <div className="flex items-center space-x-4 mt-auto pt-4 border-t border-border/50">
+                  {project.imageUrl && (
+                    <img src={project.imageUrl} alt={`Vista previa de ${project.title}`} className="rounded-md mb-3 h-auto max-h-40 max-w-md mx-auto block" />
+                  )}
+                  <div className="flex items-center space-x-4 mt-auto pt-3 border-t border-border/50">
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text hover:text-primary transition-colors duration-300">
-                      <FaGithub size={20} /> GitHub
+                      <FaGithub size={18} /> GitHub
                     </a>
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text hover:text-primary transition-colors duration-300">
-                      <FaExternalLinkAlt size={20} /> Demo
+                      <FaExternalLinkAlt size={18} /> Demo
                     </a>
                   </div>
                 </motion.div>

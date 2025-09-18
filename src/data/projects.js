@@ -1,16 +1,10 @@
 export const projects = [
   {
-    title: "Trabajo en Proceso",
-    description: "Ando trabajando en mi portafolio personal para mostrar mis proyectos y habilidades.",
-    technologies: ["React", "TailwindCSS", "Framer Motion"],
-    githubUrl: "https://github.com/danielmoralesqsh/portfolio",
-    liveUrl: "#"
-  },
-  {
-    title: "Proyecto Secreto",
-    description: "Actualmente desarrollando una aplicación full-stack para solucionar un problema del mundo real. Más detalles próximamente.",
-    technologies: ["React", "Node.js", "Express", "MongoDB"],
-    githubUrl: "#",
-    liveUrl: "#"
+    title: "StreamVerse - Plataforma de Streaming",
+    description: "Plataforma interactiva para ver TV y escuchar radio en línea, ofreciendo una experiencia fluida para disfrutar de contenido multimedia en vivo.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "HLS.js"],
+    githubUrl: "https://github.com/danielmoralesqsh/RadioTV",
+    liveUrl: "https://radiotv.netlify.app/radio",
+    imageUrl: "/streamverse-preview.png"
   }
 ];
